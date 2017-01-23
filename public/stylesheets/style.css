@@ -1,0 +1,8 @@
+h1{
+  text-align: center;
+  margin: auto;
+  padding: 30px 0 30px 0;
+}
+.todo-item-class .btn{
+  margin-left: auto;
+}
