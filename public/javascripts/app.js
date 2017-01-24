@@ -8,28 +8,35 @@ var app = new Vue({
     itemToAdd: ""
   },
   methods: {
+    //Function to get all current to do's
     update: function(){
       this.$http.get('http://localhost:3000/get').then((response) => {
         this.list = response.body;
         console.log(response);
       }, (response) => {
-        console.log("Error");
+        alert('Error getting items');
       })
     },
+    //Function to add a todo
     saveItem: function(){
       var url = 'http://localhost:3000/add/' + this.itemToAdd + '/true';
       this.$http.get(url).then((response)=>{
+        this.itemToAdd = '';
         this.update();
       }, (response) => {
-        console.log("error");
+        alert('Error adding item');
+      })
+    },
+    //Function to Delete a todo.
+    delete: function(itemToDelete){
+      var url = 'http://localhost:3000/delete/' + itemToDelete;
+      this.$http.delete(url).then((response) => {
+        this.update();
+      }, (response) => {
+        alert('Error deleting item');
       })
     }
   }
-});
-
-Vue.component('todo-item', {
-  props: ['todo'],
-  template:'<div class="todo-item-class"><h2>{{ todo.name }}</h2><button class="btn btn-danger pull-xs-right">Delete</button></div>'
 });
 
 //Run the update for the first time on app load

@@ -10,13 +10,17 @@
     <div class="container-fluid" id="app">
       <h1>{{ title }}</h1>
       <div class="list-group">
-        <todo-item class="list-group-item" v-for="item in list" v-bind:todo="item"></todo-item>
-        <li class="todo-item-class list-group-item">
-          <input type="text" placeholder="Enter something you need to do." v-model="itemToAdd">
-          <button class="btn btn-success" v-on:click="saveItem()">Add Item</button>
+        <li class="todo-item-class list-group-item" v-for="item in list">
+          <h2>{{ item.name }}</h2>
+          <button type="button" class="btn btn-danger" v-on:click="app.delete(item._id)">Delete</button>
+        </li>
+        <li class="todo-item-class list-group-item input-group">
+          <input id="addField" class="form-control" type="text" placeholder="Enter something you need to do." v-model="itemToAdd">
+          <button class="btn btn-success input-group-addon" v-on:click="saveItem()">Add Item</button>
         </li>
       </div>
     </div>
+    <h2 id="link-text">Find the code for this <a href="http://github.com/jackdweber/MEVN-Todo">here</a></h2>
     <script src="javascripts/vue.min.js"></script>
     <script src="https://cdn.jsdelivr.net/vue.resource/1.0.3/vue-resource.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>

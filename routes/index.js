@@ -13,7 +13,7 @@ router.get('/', function(req, res, next) {
 router.get('/add/:name/:complete', function(req, res, next) {
   Todo.create({name: req.params.name, complete: req.params.complete}, function (error, results){
     if(error){
-      console.log("shit");
+      res.send(errorHTML);
     }
     else{
       res.json(results);
@@ -31,5 +31,16 @@ router.get('/get', function(req, res, next){
     }
   });
 });
+
+router.delete('/delete/:id', function(req, res){
+  Todo.find({_id: req.params.id}).remove(function(error, results){
+    if(error){
+      res.send(errorHTML);
+    }
+    else{
+      res.send(results);
+    }
+  })
+})
 
 module.exports = router;

@@ -6,7 +6,10 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var Vue = require('vue');
 
+//Require the file holding information for mongoose and mongodb
 require('./connection');
+
+//Files that hold routing information
 var index = require('./routes/index');
 var users = require('./routes/users');
 

@@ -1,3 +1,4 @@
+//File used for setting up mongoose
 var mongoose = require('mongoose');
 var dbUrl = 'mongodb://localhost:27017/todos';
 mongoose.connect(dbUrl);
@@ -7,4 +8,6 @@ process.on('SIGINT', function() {
     console.log('Mongoose default connection disconnected');
     process.exit(0);
 }); });
+
+//Require the file used to hold schema information
 require('./todo');

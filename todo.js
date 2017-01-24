@@ -1,3 +1,4 @@
+//File that holds Schema information required to use mongoose.js
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var TodoSchema = new Schema({

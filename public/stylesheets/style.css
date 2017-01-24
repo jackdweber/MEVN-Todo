@@ -6,3 +6,8 @@ h1{
 .todo-item-class .btn{
   margin-left: auto;
 }
+#link-text{
+  margin:auto;
+  text-align: center;
+  padding-top: 20px;
+}
